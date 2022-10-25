@@ -1,0 +1,108 @@
+Name:              api-feed-svc
+Namespace:         default
+Labels:            app=api-feed
+Annotations:       <none>
+Selector:          app=api-feed
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.30.245
+IPs:               10.100.30.245
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         192.168.1.178:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              api-user-svc
+Namespace:         default
+Labels:            app=api-user
+Annotations:       <none>
+Selector:          app=api-user
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.77.171
+IPs:               10.100.77.171
+Port:              <unset>  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         192.168.49.38:8080
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.0.1
+IPs:               10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         192.168.134.152:443,192.168.169.105:443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:                     publicfrontend
+Namespace:                default
+Labels:                   app=frontend
+Annotations:              <none>
+Selector:                 app=frontend
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.0.47
+IPs:                      10.100.0.47
+LoadBalancer Ingress:     a980cd92d4fce4d4eb4b08da0ae6bf56-1381287420.us-west-2.elb.amazonaws.com
+Port:                     <unset>  80/TCP
+TargetPort:               80/TCP
+NodePort:                 <unset>  30564/TCP
+Endpoints:                192.168.11.170:80
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:                     publicreverseproxy
+Namespace:                default
+Labels:                   app=reverseproxy
+                          service=reverseproxy
+Annotations:              <none>
+Selector:                 app=reverseproxy
+Type:                     LoadBalancer
+IP Family Policy:         SingleStack
+IP Families:              IPv4
+IP:                       10.100.140.51
+IPs:                      10.100.140.51
+LoadBalancer Ingress:     a0e08514300494b88906d31fe1050739-184344084.us-west-2.elb.amazonaws.com
+Port:                     <unset>  8080/TCP
+TargetPort:               8080/TCP
+NodePort:                 <unset>  32606/TCP
+Endpoints:                192.168.10.88:8080
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+
+
+Name:              reverseproxy-svc
+Namespace:         default
+Labels:            service=reverseproxy
+Annotations:       <none>
+Selector:          service=reverseproxy
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.100.46.30
+IPs:               10.100.46.30
+Port:              8080  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         192.168.10.88:8080
+Session Affinity:  None
+Events:            <none>
