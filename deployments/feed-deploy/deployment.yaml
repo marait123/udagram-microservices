@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-feed
+  labels:
+    app: api-feed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-feed
+  template:
+    metadata:
+      labels:
+        app: api-feed
+    spec:
+      containers:
+      - name: api-feed
+        image: marait123/udagram-api-feed
+        imagePullPolicy: Always  
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"    
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: udsecret
+        - configMapRef:
+            name: udconfig
+        volumeMounts:
+              - name: aws-secret
+                mountPath: "/root/.aws/"
+                readOnly: true        
+      volumes:
+      - name: aws-secret
+        secret:
+          secretName: aws-secret

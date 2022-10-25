@@ -18,7 +18,7 @@ spec:
         app: reverseproxy
     spec:
       containers:
-      - image: marait123/simple-reverse-proxy
+      - image: marait123/reverseproxy
         name: reverseproxy
         imagePullPolicy: Always          
         resources:

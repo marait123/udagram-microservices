@@ -1,12 +1,12 @@
-docker tag reverseproxy marait123/reverseproxy:v1
-docker push  marait123/reverseproxy:v1
+docker tag reverseproxy marait123/reverseproxy
+docker push  marait123/reverseproxy
 
 
-docker tag reverseproxy marait123/udagram-api-user:v1
-docker push  marait123/udagram-api-user:v1
+docker tag udagram-api-user marait123/udagram-api-user
+docker push  marait123/udagram-api-user
 
-docker tag reverseproxy marait123/udagram-api-feed:v1
-docker push  marait123/udagram-api-feed:v1
+docker tag udagram-api-feed marait123/udagram-api-feed
+docker push  marait123/udagram-api-feed
 
-docker tag reverseproxy marait123/udagram-frontend:v1
-docker push  marait123/udagram-frontend:v1
+docker tag udagram-frontend:local marait123/udagram-frontend
+docker push  marait123/udagram-frontend
