@@ -13,3 +13,8 @@ kubectl apply -f deployments/user-deploy/service.yaml
 
 kubectl apply -f udagram-reverseproxy/deployment.yaml
 kubectl apply -f udagram-reverseproxy/service.yaml
+
+
+kubectl apply -f deployments/frontend-deploy/deployment.yaml
+kubectl apply -f deployments/frontend-deploy/service.yaml
+
